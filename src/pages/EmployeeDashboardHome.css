@@ -1,0 +1,536 @@
+/* Employee Dashboard - Redesigned to match viewers dashboard */
+.employee-home-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0; /* Remove padding to prevent overflow */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  box-sizing: border-box;
+}
+
+/* Hero section with enhanced gradient background */
+.employee-home-welcome {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background-size: 200% 200%;
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 1rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(30, 60, 114, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Calendar Widget Styling */
+.calendar-widget {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin: 1rem;
+  overflow: hidden;
+}
+
+.calendar-widget h3 {
+  color: #1e3c72;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.calendar-widget h3 svg {
+  margin-right: 0.5rem;
+  color: #2a5298;
+}
+
+.employee-calendar {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+}
+
+/* Custom Calendar Styling */
+.react-calendar {
+  border: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.react-calendar__navigation {
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.react-calendar__navigation button {
+  color: #1e3c72;
+  font-weight: 600;
+}
+
+.react-calendar__month-view__weekdays {
+  font-weight: 600;
+  color: #555;
+}
+
+.react-calendar__tile {
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.react-calendar__tile--active {
+  background: #1e3c72 !important;
+  color: white;
+}
+
+.react-calendar__tile--now {
+  background: #e6f0ff;
+  color: #1e3c72;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus,
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #f0f7ff;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.welcome-content {
+  flex: 1;
+}
+
+.welcome-content h1 {
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+
+.welcome-content p {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.welcome-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+}
+
+.digital-clock, .current-date {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.digital-clock:hover, .current-date:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.clock-icon, .calendar-icon {
+  margin-right: 0.8rem;
+  font-size: 1.2rem;
+}
+
+/* Desktop Navigation - Enhanced styling */
+.employee-nav {
+  display: flex;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  padding: 0.5rem;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.employee-nav-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #555;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 0.2rem;
+}
+
+.employee-nav-item:hover {
+  background: rgba(42, 82, 152, 0.05);
+  color: #2a5298;
+  transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .employee-home-container {
+    padding: 0 0 70px; /* Add bottom padding for mobile footer */
+  }
+  
+  .employee-home-welcome {
+    margin: 0.75rem;
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .welcome-content {
+    margin-bottom: 1rem;
+  }
+  
+  .welcome-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .welcome-time {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .digital-clock, .current-date {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .calendar-widget {
+    margin: 0.75rem;
+    padding: 1rem;
+  }
+  
+  .employee-home-modules {
+    padding: 0 0.75rem;
+  }
+  
+  .module-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Module Cards Styling */
+.module-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 25px;
+  padding: 0 10px;
+  max-width: 1400px; /* Limit maximum width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Force specific number of columns based on viewport width */
+@media (min-width: 1200px) {
+  .module-cards {
+    grid-template-columns: repeat(3, 1fr); /* Force 3 columns on large screens */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .module-cards {
+    grid-template-columns: repeat(2, 1fr); /* Force 2 columns on medium screens */
+  }
+}
+
+.module-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 320px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  isolation: isolate;
+  margin-bottom: 20px; /* Add explicit bottom margin */
+  break-inside: avoid; /* Prevent cards from breaking */
+  page-break-inside: avoid; /* For older browsers */
+  width: 100%; /* Ensure cards take full width of their grid cell */
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.module-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Module colors - unique gradient for each module */
+.module-card:nth-child(1) .module-icon {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.module-card:nth-child(2) .module-icon {
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+}
+
+.module-card:nth-child(3) .module-icon {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.module-card:nth-child(4) .module-icon {
+  background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+}
+
+.module-card:nth-child(5) .module-icon {
+  background: linear-gradient(135deg, #f46b45 0%, #eea849 100%);
+}
+
+.module-card:nth-child(6) .module-icon {
+  background: linear-gradient(135deg, #654ea3 0%, #eaafc8 100%);
+}
+
+.module-card:nth-child(7) .module-icon {
+  background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+}
+
+.module-card:nth-child(8) .module-icon {
+  background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+}
+
+/* Matching button colors */
+.module-card:nth-child(1) .module-button:not(.disabled) {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.module-card:nth-child(2) .module-button:not(.disabled) {
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+}
+
+.module-card:nth-child(3) .module-button:not(.disabled) {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.module-card:nth-child(4) .module-button:not(.disabled) {
+  background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+}
+
+.module-card:nth-child(5) .module-button:not(.disabled) {
+  background: linear-gradient(135deg, #f46b45 0%, #eaa849 100%);
+}
+
+.module-card:nth-child(6) .module-button:not(.disabled) {
+  background: linear-gradient(135deg, #654ea3 0%, #eaafc8 100%);
+}
+
+.module-card:nth-child(7) .module-button:not(.disabled) {
+  background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+}
+
+.module-card:nth-child(8) .module-button:not(.disabled) {
+  background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+}
+
+.module-icon {
+  width: 70px; /* Larger icon */
+  height: 70px; /* Larger icon */
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px; /* Increased spacing */
+  color: white;
+  font-size: 1.8rem; /* Larger icon size */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.module-content {
+  padding: 30px; /* Increased padding */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.module-content h3 {
+  margin: 0 0 18px; /* Increased spacing */
+  color: #333;
+  font-size: 1.4rem; /* Larger font */
+  font-weight: 700;
+}
+
+.module-content p {
+  margin: 0 0 25px; /* Increased spacing */
+  color: #666;
+  font-size: 1rem; /* Larger font */
+  line-height: 1.7;
+  flex: 1;
+}
+
+.module-status {
+  margin-bottom: 25px; /* Increased spacing */
+  font-size: 0.95rem; /* Larger font */
+  font-weight: 600;
+}
+
+.module-status.available {
+  color: #28a745;
+}
+
+.module-status.in-progress {
+  color: #ffc107;
+}
+
+.module-button {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  border: none;
+  padding: 14px 22px; /* Larger button */
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem; /* Larger font */
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.module-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.module-button.disabled {
+  background: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.module-button.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .module-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .module-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    min-height: 130px;
+  }
+  
+  .module-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+  
+  .module-content {
+    padding: 0;
+    flex-direction: column;
+  }
+  
+  .module-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  
+  .module-content p {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .module-status {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .module-button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 120px;
+    margin-left: auto;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .module-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 20px;
+    min-height: 280px;
+  }
+  
+  .module-icon {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 65px;
+    height: 65px;
+  }
+  
+  .module-content {
+    width: 100%;
+  }
+  
+  .module-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .module-content p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    -webkit-line-clamp: 3;
+  }
+  
+  .module-button {
+    margin: 15px auto 0;
+    width: 100%;
+    max-width: none;
+    padding: 12px 15px;
+  }
+}
+
+

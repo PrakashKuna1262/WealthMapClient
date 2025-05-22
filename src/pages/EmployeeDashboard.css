@@ -1,0 +1,426 @@
+/* Main Dashboard Container */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  position: relative;
+  padding-bottom: 60px; /* Space for mobile footer nav */
+}
+
+/* Top Navbar */
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.brand-icon {
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.logout-icon {
+  margin-right: 0.5rem;
+}
+
+.navbar-mobile-toggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  position: relative;
+}
+
+.navbar-mobile-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure the icon is centered and properly sized */
+.navbar-mobile-toggle svg {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Mobile Dropdown Menu */
+.mobile-dropdown {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  background: white;
+  width: 200px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1000;
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.mobile-dropdown.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #333; /* Set text color to dark */
+  font-weight: 500;
+}
+
+.mobile-dropdown-item:hover {
+  background: #f5f5f5;
+}
+
+.dropdown-icon {
+  margin-right: 10px;
+  color: #1e3c72;
+}
+
+/* Enhanced colors for desktop navigation */
+.desktop-nav {
+  display: flex;
+  background: white;
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.desktop-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  color: #555;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s;
+  min-width: 80px;
+  margin: 0 0.2rem;
+}
+
+.desktop-nav-item:hover {
+  background: #f0f7ff;
+  color: #1e3c72;
+  transform: translateY(-3px);
+}
+
+.desktop-nav-item.active {
+  background: #e6f0ff;
+  color: #1e3c72;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(30, 60, 114, 0.15);
+}
+
+.desktop-nav-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #f0f4f9;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s;
+}
+
+.desktop-nav-item:hover .desktop-nav-icon-wrapper,
+.desktop-nav-item.active .desktop-nav-icon-wrapper {
+  background: #d6e4ff;
+}
+
+.desktop-nav-icon {
+  font-size: 1.2rem;
+  color: #1e3c72;
+}
+
+/* Hero Section */
+.dashboard-hero {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background-size: 200% 200%;
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 0 1rem 1.5rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-content h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.user-info h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.user-info p {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Main Content Area */
+.dashboard-content {
+  flex: 1;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Enhanced colors for footer navigation */
+.dashboard-footer-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.75rem 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-top: 1px solid #eaeaea;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #666;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+  width: 60px;
+}
+
+.nav-item.active {
+  color: #1e3c72;
+  background-color: rgba(30, 60, 114, 0.05);
+}
+
+.nav-item:hover {
+  color: #1e3c72;
+  transform: translateY(-5px);
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.nav-label {
+  font-size: 0.7rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1.5rem 1rem 80px; /* Add bottom padding for mobile */
+  }
+  
+  .dashboard-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  }
+  
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .user-profile {
+    margin-top: 1.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Hide logout button on mobile */
+  .logout-button {
+    display: none;
+  }
+  
+  /* Show mobile footer nav and hide desktop nav */
+  .dashboard-footer-nav {
+    display: flex;
+  }
+  
+  .desktop-nav {
+    display: none;
+  }
+  
+  /* Show mobile menu toggle */
+  .navbar-mobile-toggle {
+    display: flex;
+  }
+  
+  /* Mobile dropdown styling */
+  .mobile-dropdown {
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background: white;
+    width: 200px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-dropdown.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Ensure footer nav is completely hidden on desktop */
+  .dashboard-footer-nav {
+    display: none !important;
+  }
+  
+  /* Hide mobile dropdown on desktop */
+  .mobile-dropdown {
+    display: none !important;
+  }
+  
+  /* Hide mobile toggle on desktop */
+  .navbar-mobile-toggle {
+    display: none !important;
+  }
+}
+
+/* Loading and Error States */
+.loading-container, .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #1e3c72;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+

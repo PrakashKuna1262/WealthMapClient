@@ -1,0 +1,133 @@
+.feedback-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-form-container h2 {
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.feedback-form-container p {
+  color: #666;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #3388ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(51, 136, 255, 0.2);
+}
+
+.star-rating {
+  display: flex;
+  gap: 8px;
+}
+
+.star-rating-item {
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.2s;
+}
+
+.star-rating-item:hover {
+  transform: scale(1.2);
+}
+
+.star-filled {
+  color: #ffb400;
+}
+
+.star-empty {
+  color: #ccc;
+}
+
+.submit-btn {
+  background-color: #3388ff;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #2970d6;
+}
+
+.submit-btn:disabled {
+  background-color: #a0c0e8;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.feedback-success {
+  background-color: #e7f7ed;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feedback-error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
