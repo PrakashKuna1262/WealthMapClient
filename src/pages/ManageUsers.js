@@ -27,13 +27,7 @@ function ManageUsers() {
       </div>
       
       <div className="tab-navigation">
-        <button 
-          className={`tab-btn ${activeTab === 'view' ? 'active' : ''}`}
-          onClick={() => setActiveTab('view')}
-        >
-          <FaUserFriends className="tab-icon" />
-          View Employee Details
-        </button>
+        
         <button 
           className={`tab-btn ${activeTab === 'manage' ? 'active' : ''}`}
           onClick={() => setActiveTab('manage')}
@@ -51,7 +45,6 @@ function ManageUsers() {
       </div>
       
       <div className="tab-content">
-        {activeTab === 'view' && <ViewEmployees />}
         {activeTab === 'manage' && <ManageEmployeeDetails />}
         {activeTab === 'add' && <AddEmployee />}
       </div>
